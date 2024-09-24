@@ -7,13 +7,12 @@ int getMinDenoms(List<int> coins, int amount) {
     throw ArgumentError("At least one coin must be passed");
   }
 
-  coins.forEach((coin) => {
-        if (coin <= 0)
-          {
-            throw ArgumentError(
-                "${coin} invalided value. Coins must contain postive integers only")
-          }
-      });
+  for (var coin in coins) {
+    if (coin <= 0) {
+      throw ArgumentError(
+          "$coin invalided value. Coins must contain postive integers only");
+    }
+  }
 
   // subAmmount[i] will hold the minimum number of coins needed to make amount i
   List<int> subAmmount = List.filled(amount + 1, amount + 1);

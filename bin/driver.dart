@@ -34,7 +34,7 @@ class MinDenomsCommand extends Command {
 
     var result = getMinDenoms(
         List.from(coins.map((coin) => int.parse(coin))), int.parse(amount));
-    print('min denominations for ${amount} with coins ${coins}: ${result}');
+    print('min denominations for $amount with coins $coins: $result');
   }
 }
 
@@ -59,10 +59,12 @@ class PalindromicCommand extends Command {
     var startRange = argResults?['startRange'] as String;
     var endRange = argResults?['endRange'] as String;
 
-    if (palindromic(subject, int.parse(startRange), int.parse(endRange))) {
-      print('$subject is a palindrom');
+    var intStart = int.parse(startRange);
+    var intEnd = int.parse(endRange);
+    if (palindromic(subject, intStart, intEnd)) {
+      print('${subject.substring(intStart, intEnd + 1)} is a palindrom');
     } else {
-      print('$subject is not a palindrom');
+      print('${subject.substring(intStart, intEnd + 1)} is not a palindrom');
     }
   }
 }
