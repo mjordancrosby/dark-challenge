@@ -11,8 +11,12 @@ void main() {
       expect(palindromic('sees', 0, 3), isTrue);
     });
 
-    test('Non-palindromic string', () {
-      expect(palindromic('hello', 0, 4), isFalse);
+    test('Non-palindromic string - odd', () {
+      expect(palindromic('abcda', 0, 4), isFalse);
+    });
+
+    test('Non-palindromic string - even', () {
+      expect(palindromic('abccda', 0, 5), isFalse);
     });
 
     test('Palindrome in a substring - odd', () {
