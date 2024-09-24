@@ -11,18 +11,20 @@ void main(List<String> args) {
     ..run(args).catchError((error) {
       print(error);
       exit(64); // Exit code 64 indicates a usage error.
-  });
+    });
 }
 
 class MinDenomsCommand extends Command {
   @override
   final name = "mindenoms";
   @override
-  final description = "Calculate min number of coins to total a specified amount";
+  final description =
+      "Calculate min number of coins to total a specified amount";
 
   MinDenomsCommand() {
     argParser.addMultiOption('coins', abbr: 'c', help: 'List of coins');
-    argParser.addOption('amount', abbr: 'a', mandatory: true, help: 'Amount to test');
+    argParser.addOption('amount',
+        abbr: 'a', mandatory: true, help: 'Amount to test');
   }
 
   @override
@@ -30,7 +32,8 @@ class MinDenomsCommand extends Command {
     var coins = argResults?['coins'] as List<String>;
     var amount = argResults?['amount'] as String;
 
-    var result = getMinDenoms(List.from(coins.map((coin) => int.parse(coin))), int.parse(amount));
+    var result = getMinDenoms(
+        List.from(coins.map((coin) => int.parse(coin))), int.parse(amount));
     print('min denominations for ${amount} with coins ${coins}: ${result}');
   }
 }
@@ -42,9 +45,12 @@ class PalindromicCommand extends Command {
   final description = "Determine if a string is a palindrom";
 
   PalindromicCommand() {
-    argParser.addOption('subject', abbr: 's', mandatory: true, help: 'String to test');
-    argParser.addOption('startRange', mandatory: true, help: 'Start range of substring');
-    argParser.addOption('endRange', mandatory: true, help: 'End range of substring');
+    argParser.addOption('subject',
+        abbr: 's', mandatory: true, help: 'String to test');
+    argParser.addOption('startRange',
+        mandatory: true, help: 'Start range of substring');
+    argParser.addOption('endRange',
+        mandatory: true, help: 'End range of substring');
   }
 
   @override
@@ -55,8 +61,7 @@ class PalindromicCommand extends Command {
 
     if (palindromic(subject, int.parse(startRange), int.parse(endRange))) {
       print('$subject is a palindrom');
-    }
-    else {
+    } else {
       print('$subject is not a palindrom');
     }
   }

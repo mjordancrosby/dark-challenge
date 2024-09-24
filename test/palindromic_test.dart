@@ -20,15 +20,15 @@ void main() {
     });
 
     test('Palindrome in a substring - odd', () {
-      expect(palindromic('abcbd', 1, 3), isTrue);  // 'bcb' is a palindrome
+      expect(palindromic('abcbd', 1, 3), isTrue); // 'bcb' is a palindrome
     });
 
     test('Palindrome in a substring - odd', () {
-      expect(palindromic('abbd', 1, 2), isTrue);  // 'bb' is a palindrome
+      expect(palindromic('abbd', 1, 2), isTrue); // 'bb' is a palindrome
     });
 
     test('Single character is considered palindrome', () {
-      expect(palindromic('abcdef', 2, 2), isTrue);  // 'c' is a palindrome
+      expect(palindromic('abcdef', 2, 2), isTrue); // 'c' is a palindrome
     });
 
     test('Empty string should throw error', () {
